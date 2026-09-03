@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent Sprite Forge · 2D 素材生成</title>
+<link rel="stylesheet" href="static/app.css">
+</head>
+<body>
+<!-- 自定义画风命名弹窗 -->
+<div id="nameCustomStyleModal" class="name-modal">
+  <div class="name-modal-content">
+    <div class="name-modal-header">
+      <h3>设置画风名称</h3>
+    </div>
+    <div class="name-modal-body">
+      <label>
+        <span>画风名称</span>
+        <input type="text" id="customStyleNameInput" placeholder="例如：我的像素风格" maxlength="20">
+      </label>
+    </div>
+    <div class="name-modal-footer">
+      <button type="button" id="cancelCustomStyleName" class="modal-btn modal-btn-secondary">取消</button>
+      <button type="button" id="confirmCustomStyleName" class="modal-btn modal-btn-primary">确定</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="brand"><span class="brand-mark">✦</span><div><h1>Sprite Forge</h1><p>AI 2D 素材工作台</p></div></div>
+  <span class="status"><i></i> Gemini 3.7 · TT Image 2</span>
+</header>
+
+<main>
+  <section class="chat panel">
+    <div class="chat-head"><div class="section-title"><span>01</span><div><h2>素材对话</h2><p>告诉 Agent 你想创造什么</p></div></div><span class="online">● 在线</span></div>
+    <div id="conversation" class="conversation">
+      <div class="message agent"><div class="avatar">✦</div><div><span class="speaker">Sprite Forge</span><div class="bubble">你好！我会根据你的描述、参考图和风格，自动规划并生成可直接使用的 2D 素材。<br><em>试试说：森林哥布林侦察兵，做一个 2×2 待机动画</em></div></div></div>
+    </div>
+    <section class="setup panel">
+      <div class="section-title"><span>02</span><div><h2>素材设置</h2><p>在发送需求前定义视觉方向</p></div></div>
+      <div class="settings-grid">
+        <div class="upload-zone" id="dropZone">
+          <input type="file" id="refs" accept="image/*" multiple>
+          <div class="upload-icon">↥</div><strong>拖入参考图</strong><span>或点击上传 · 最多 14 张</span>
+          <div id="fileList"></div>
+        </div>
+        <label>素材类型
+          <select id="kind"><option value="sprite">角色 / 怪物 Sprite</option><option value="map">场景 / 地图背景</option></select>
+        </label>
+        <div id="spriteOpts" class="two-col">
+          <label>对象类别<select id="target"></select></label>
+          <label>动作模式<select id="mode"></select></label>
+          <label id="npcRoleWrap" hidden>NPC 类型<select id="npcRole"></select></label>
+        </div>
+        <div id="frameOpts" class="frame-options">
+          <label>动画帧数<select id="frameCount"></select></label>
+          <output id="frameGrid" class="frame-grid"></output>
+        </div>
+        <label>视觉画风
+          <div class="style-selector">
+            <button type="button" id="styleButton" class="style-button">
+              <span id="styleLabel">16-bit JRPG</span>
+              <span class="arrow">▼</span>
+            </button>
+            <input type="hidden" id="style" value="retro_16bit">
+          </div>
+        </label>
+        <label>画风补充（可选）
+          <input id="styleNote" type="text" maxlength="300" placeholder="例如：暖色高光、深色描边">
+        </label>
+        <label>画幅
+          <select id="size"><option value="1024x1024">1024 × 1024 · 方形</option><option value="1536x1024">1536 × 1024 · 横向</option><option value="1024x1536">1024 × 1536 · 纵向</option><option value="2048x2048">2048 × 2048 · 高清</option></select>
+        </label>
+      </div>
+    </section>
+    <div class="composer">
+      <textarea id="brief" rows="2" placeholder="描述你想要的素材…"></textarea>
+      <div class="composer-foot"><span>点击发送</span><button id="go" aria-label="发送">↗</button></div>
+    </div>
+  </section>
+
+  <section class="panel process-panel">
+    <div class="section-title"><span>03</span><div><h2>生成过程</h2><p>实时查看 Agent 工作状态</p></div></div>
+    <pre id="log">等待你的需求…</pre>
+    <details id="promptBox" hidden>
+      <summary>查看实际提示词</summary>
+      <pre id="prompt"></pre>
+    </details>
+  </section>
+
+  <section class="panel wide output-panel">
+    <div class="section-title"><span>04</span><div><h2>素材画廊</h2><p id="outputSummary">透明背景，已完成后处理</p></div></div>
+    <div id="rawWrap" hidden>
+      <h3 id="rawTitle">原始图（模型直出透明底）</h3>
+      <img id="raw" alt="原始生成图">
+    </div>
+    <div id="outWrap" hidden>
+      <div class="output-head"><h3 id="outputTitle">后处理产物（透明背景）</h3><a id="downloadAll" class="download-all" hidden download>下载全部 ZIP</a></div>
+      <section id="animationWrap" class="asset-group" hidden>
+        <h4>动画预览（WebP，保留完整透明通道）</h4>
+        <div id="animationPreview" class="animation-preview"></div>
+      </section>
+      <section id="framesWrap" class="asset-group" hidden>
+        <h4>图片集（逐帧 PNG 与透明 Sheet）</h4>
+        <div id="gallery"></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="panel wide history-panel">
+    <div class="section-title"><span>05</span><div><h2>生成历史</h2><p>SQLite 已保存的素材记录</p></div><button id="refreshHistory" class="text-button">刷新</button></div>
+    <div id="history" class="history-list"></div>
+  </section>
+</main>
+
+<!-- 画风选择弹窗 -->
+<div id="styleModal" class="style-modal">
+  <div class="style-modal-content">
+    <div class="style-modal-header">
+      <h3>选择视觉画风</h3>
+      <button type="button" id="styleModalClose" class="style-modal-close">×</button>
+    </div>
+    <div class="style-upload-section">
+      <label class="style-upload-button">
+        <input type="file" id="customStyleUpload" accept="image/*" multiple hidden>
+        <span class="upload-icon">📤</span>
+        <span class="upload-text">上传自定义画风参考图</span>
+      </label>
+      <div id="customStyleGallery" class="custom-style-gallery"></div>
+    </div>
+    <div id="styleModalBody" class="style-modal-body"></div>
+  </div>
+</div>
+
+<script src="static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+*.key
+*.pem
+config/secrets.json
+demo_out/
+sprite_forge.sqlite3
+uploads/
+outputs/
+.tmp/
+.venv/
+*.sqlite3
+*.db
+screenshots/
