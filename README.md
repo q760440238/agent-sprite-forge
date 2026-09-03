@@ -22,7 +22,9 @@
 
 ## 主界面预览
 
-![GitHub仓库](docs/github-repo.webp)
+![WebUI主界面](docs/webui-main.webp)
+
+*128+种预设画风、自定义上传、多种生成模式*
 
 ## 快速开始
 
