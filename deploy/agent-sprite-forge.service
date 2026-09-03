@@ -1,0 +1,32 @@
+[Unit]
+Description=Agent Sprite Forge WebUI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/agent-sprite-forge
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/agent-sprite-forge/.venv/bin/uvicorn --app-dir /opt/agent-sprite-forge/webui server:app --host 127.0.0.1 --port 14660 --proxy-headers
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+UMask=027
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectHome=true
+ProtectSystem=full
+ProtectControlGroups=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+LockPersonality=true
+RestrictSUIDSGID=true
+RemoveIPC=true
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target
