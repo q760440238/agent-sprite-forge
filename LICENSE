@@ -1,0 +1,119 @@
+Agent Sprite Forge License (ASFL) v1.0
+=========================================
+
+Copyright (c) 2024-present q760440238
+
+English Version
+---------------
+
+Permission is hereby granted, free of charge, to any person or organization obtaining a copy
+of this software and associated documentation files (the "Software"), to use, copy, modify,
+merge, publish, and distribute the Software, subject to the following conditions:
+
+1. PERSONAL AND NON-COMMERCIAL USE
+   The Software may be used freely for personal, educational, research, or non-commercial purposes
+   without any fee or royalty payment.
+
+2. COMMERCIAL USE - REVENUE THRESHOLD
+   Organizations or individuals may use the Software for commercial purposes under the following terms:
+   
+   a) If your annual gross revenue derived from products or services using this Software is less than
+      USD $100,000 (or equivalent in other currencies), you may use the Software without payment.
+   
+   b) If your annual gross revenue derived from products or services using this Software equals or
+      exceeds USD $100,000, you must:
+      - Pay an annual revenue share of 1% (one percent) of the gross revenue attributable to the
+        Software's use.
+      - Payments must be made within 90 days after the end of each fiscal year.
+      - Contact the copyright holder at the repository contact information to arrange payment.
+
+3. REVENUE CALCULATION
+   "Gross revenue attributable to the Software" means revenue directly generated from products,
+   services, or features that incorporate, use, or depend on this Software. Revenue from unrelated
+   business activities is excluded.
+
+4. REPORTING REQUIREMENT
+   Commercial users exceeding the $100,000 threshold must provide annual revenue reports to the
+   copyright holder, including:
+   - Total revenue from Software-using products/services
+   - Calculation of the 1% payment amount
+   - Fiscal year period covered
+
+5. ATTRIBUTION
+   All copies or substantial portions of the Software must include this license notice and the
+   copyright notice above.
+
+6. MODIFICATION AND DISTRIBUTION
+   You may modify and distribute modified versions of the Software under this same license.
+   Modified versions must clearly indicate the modifications made.
+
+7. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+   BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+8. ENFORCEMENT
+   Failure to comply with the payment obligations under Section 2(b) constitutes a breach of this
+   license and terminates your rights to use the Software. The copyright holder reserves the right
+   to pursue legal remedies for license violations.
+
+9. CONTACT FOR COMMERCIAL LICENSING
+   For questions about commercial licensing, payment arrangements, or alternative licensing terms,
+   please contact: https://github.com/q760440238/agent-sprite-forge/issues
+
+
+中文版本
+--------
+
+特此免费授予任何获得本软件及相关文档文件（"软件"）副本的个人或组织，在遵守以下条件的前提下，
+使用、复制、修改、合并、发布和分发本软件的权利：
+
+1. 个人和非商业用途
+   本软件可免费用于个人、教育、研究或非商业目的，无需支付任何费用或版税。
+
+2. 商业用途 - 收入门槛
+   组织或个人可在以下条款下将本软件用于商业目的：
+   
+   a) 如果您使用本软件产生的年度总收入低于10万美元（或其他货币的等值金额），您可以免费使用本软件。
+   
+   b) 如果您使用本软件产生的年度总收入等于或超过10万美元，您必须：
+      - 支付归因于本软件使用的总收入的1%（百分之一）作为年度收入分成。
+      - 付款必须在每个财年结束后90天内完成。
+      - 联系版权持有人（通过代码仓库联系方式）安排付款事宜。
+
+3. 收入计算
+   "归因于本软件的总收入"是指直接从结合、使用或依赖本软件的产品、服务或功能中产生的收入。
+   与本软件无关的业务活动收入不包括在内。
+
+4. 报告要求
+   超过10万美元门槛的商业用户必须向版权持有人提供年度收入报告，包括：
+   - 使用本软件的产品/服务的总收入
+   - 1%付款金额的计算方式
+   - 涵盖的财年期间
+
+5. 署名要求
+   本软件的所有副本或重要部分必须包含本许可声明和上述版权声明。
+
+6. 修改和分发
+   您可以在相同许可下修改和分发本软件的修改版本。修改版本必须明确说明所做的修改。
+
+7. 免责声明
+   本软件按"原样"提供，不提供任何形式的明示或暗示保证，包括但不限于适销性、特定用途适用性和
+   非侵权性的保证。在任何情况下，作者或版权持有人均不对因软件或软件的使用或其他交易而产生的
+   任何索赔、损害或其他责任负责，无论是在合同诉讼、侵权行为还是其他方面。
+
+8. 执行
+   未能遵守第2(b)条的付款义务构成违反本许可，并终止您使用本软件的权利。版权持有人保留对
+   许可违规行为采取法律补救措施的权利。
+
+9. 商业许可联系方式
+   有关商业许可、付款安排或替代许可条款的问题，请联系：
+   https://github.com/q760440238/agent-sprite-forge/issues
+
+
+---
+
+In case of any conflict between the English and Chinese versions, the English version shall prevail.
+如中英文版本有任何冲突，以英文版本为准。
