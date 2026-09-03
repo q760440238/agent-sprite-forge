@@ -2,8 +2,6 @@
 
 🎮 AI驱动的2D游戏资源生成平台 - 精灵图、特效和地图场景一站式解决方案
 
-[![GitHub](docs/github-repo.webp)](https://github.com/q760440238/agent-sprite-forge)
-
 ## 特性
 
 ### 核心功能
